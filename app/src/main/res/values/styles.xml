@@ -1,0 +1,65 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Disabling the ActionBar of the Splash Activity -->
+    <style name="ActivitySplash" parent="Theme.AppCompat.NoActionBar">
+
+    </style>
+
+    <!-- Font Sizes -->
+    <dimen name="textsize_small">16sp</dimen>
+
+
+    <!-- Empty State TextView -->
+    <style name="TextViewEmptyList">
+        <item name="android:layout_width">@dimen/dimen_200dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_20dp</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Common TextView Style -->
+    <style name="GENTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+
+    <!-- List Item - News Title -->
+    <style name="ListNewsTitle" parent="GENTextView">
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:textSize">@dimen/textsize_small</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_10dp</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <!-- List Item - News Date & Section -->
+    <style name="ListNewsDateSection" parent="GENTextView">
+        <item name="android:layout_width">@dimen/dimen_0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <!-- List Item - News Author -->
+    <style name="ListNewsAuthor" parent="GENTextView">
+        <item name="android:maxLines">1</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_5dp</item>
+    </style>
+
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ORDER_BY">order-by</string>
+    <string name="ORDER">newest</string>
+    <string name="TAGS">show-tags</string>
+    <string name="CONTRIBUTOR">contributor</string>
+    <string name="PAGE_SIZE">page-size</string>
+    <string name="PAGES">20</string>
+    <string name="API_KEY">api-key</string>
+    <string name="SHOW_FIELDS">show-fields</string>
+    <string name="THUMBNAIL">thumbnail</string>
+    <string name="SECTION">section</string>
+    <string name="api_key_text">1bb2373b-ac68-4e46-b7fe-fa12eb6e1d06</string>
+</resources>
