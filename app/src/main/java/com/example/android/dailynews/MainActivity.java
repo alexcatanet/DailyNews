@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private ListView list_view;
     private static ArrayList<HashMap<String, String>> newsList;
     private static ArrayList<HashMap<String, Drawable>> imageList;
-    private static NewsAdapter mAdapter;
+    private NewsAdapter mAdapter;
     private static List<String> webPages = new ArrayList<>();
     private TextView warningTV;
     private ImageView warningIV;
@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         // Get the status of network connectivity
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        assert connMgr != null;
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
         // If there is network access create a Loader.

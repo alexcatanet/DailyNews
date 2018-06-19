@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DailyNews</string>
+    <string name="app_name">DailyNews.</string>
     <string name="splash_screen_img">splash_screen_img</string>
     <string name="news_title_text">First Nations look to buy equity in pipeline to have say in project\'s future</string>
     <string name="category_list_text">Development</string>

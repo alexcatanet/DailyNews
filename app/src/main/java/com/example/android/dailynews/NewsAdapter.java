@@ -1,6 +1,7 @@
 package com.example.android.dailynews;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -25,13 +26,10 @@ public class NewsAdapter extends BaseAdapter {
     private static LayoutInflater inflater = null;
     private HashMap<String, String> localhash;
     private HashMap<String, Drawable> localhash2;
-    private String author;
-    private static View v;
-    private Resources res;
     private HashMap<String, String> mData = new HashMap();
     private static String[] mKeys;
 
-    public NewsAdapter(Context c, ArrayList<HashMap<String, String>> d, ArrayList<HashMap<String, Drawable>> d2) {
+    NewsAdapter(Context c, ArrayList<HashMap<String, String>> d, ArrayList<HashMap<String, Drawable>> d2) {
         context = c;
         data = d;
         data2 = d2;
@@ -61,20 +59,21 @@ public class NewsAdapter extends BaseAdapter {
      * @param parent      - the parent into which the view should be inserted to
      * @return - the updated list item view with the NewsItem info
      */
+    @SuppressLint("InflateParams")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        v = convertView;
+        View v = convertView;
 
         // Check if the existing view is being reused, otherwise inflate the view
         if (convertView == null)
 
             v = inflater.inflate(R.layout.news_list_item, null);
 
-        TextView txt1 = v.findViewById(R.id.text_news_title);
-        TextView txt2 = v.findViewById(R.id.text_news_date);
-        TextView txt3 = v.findViewById(R.id.text_news_section);
-        TextView txt4 = v.findViewById(R.id.text_news_author);
+        TextView titleText = v.findViewById(R.id.text_news_title);
+        TextView newsDate = v.findViewById(R.id.text_news_date);
+        TextView sectionNews = v.findViewById(R.id.text_news_section);
+        TextView authorNews = v.findViewById(R.id.text_news_author);
         ImageView image = v.findViewById(R.id.thumbnail);
 
         try {
@@ -83,24 +82,24 @@ public class NewsAdapter extends BaseAdapter {
             e.printStackTrace();
         }
 
-        res = context.getResources();
+        Resources res = context.getResources();
 
         // Update the title
-        txt1.setText(localhash.get(res.getString(R.string.title)));
+        titleText.setText(localhash.get(res.getString(R.string.title)));
 
         // Update the webPublicationDate
         String date = localhash.get(res.getString(R.string.webPublicationDate));
         String d = date.replace(res.getString(R.string.T), " ");
         String resultDate = d.replace(res.getString(R.string.Z), "");
         String formattedDate = parseDateToddMMyyyy(resultDate);
-        txt2.setText(formattedDate);
+        newsDate.setText(formattedDate);
         if (formattedDate != null && !formattedDate.isEmpty()) {
 
-            txt2.setVisibility(View.VISIBLE);
+            newsDate.setVisibility(View.VISIBLE);
         }
         // Update the section
         String section = localhash.get(res.getString(R.string.sectionName));
-        txt3.setText(section);
+        sectionNews.setText(section);
 
         try {
             localhash2 = data2.get(position);
@@ -110,21 +109,21 @@ public class NewsAdapter extends BaseAdapter {
 
         image.setImageDrawable(localhash2.get(res.getString(R.string.thumbnail)));
 
-        author = localhash.get(res.getString(R.string.author));
-        txt4.setText(res.getString(R.string.writtenBy) + " " + author);
+        String author = localhash.get(res.getString(R.string.author));
+        authorNews.setText(String.format("%s %s", res.getString(R.string.writtenBy), author));
 
         if (author != null && !author.isEmpty()) {
 
-            txt4.setVisibility(View.VISIBLE);
+            authorNews.setVisibility(View.VISIBLE);
         }
         return v;
     }
         // Parsing data from String to Date
-    public String parseDateToddMMyyyy(String date) {
+        private String parseDateToddMMyyyy(String date) {
         String inputPattern = "yyyy-MM-dd HH:mm:ss";
         String outputPattern = "dd-MMM-yyyy h:mm a";
-        SimpleDateFormat inputFormat = new SimpleDateFormat(inputPattern);
-        SimpleDateFormat outputFormat = new SimpleDateFormat(outputPattern);
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat inputFormat = new SimpleDateFormat(inputPattern);
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat outputFormat = new SimpleDateFormat(outputPattern);
 
         Date mDate;
         String mStr = null;
