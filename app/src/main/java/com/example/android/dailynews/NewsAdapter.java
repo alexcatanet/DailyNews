@@ -29,7 +29,7 @@ public class NewsAdapter extends BaseAdapter {
     private HashMap<String, String> mData = new HashMap();
     private static String[] mKeys;
 
-    NewsAdapter(Context c, ArrayList<HashMap<String, String>> d, ArrayList<HashMap<String, Drawable>> d2) {
+    public NewsAdapter(Context c, ArrayList<HashMap<String, String>> d, ArrayList<HashMap<String, Drawable>> d2) {
         context = c;
         data = d;
         data2 = d2;

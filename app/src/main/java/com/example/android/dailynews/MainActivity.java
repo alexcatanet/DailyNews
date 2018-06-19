@@ -331,7 +331,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                                                 Toast.LENGTH_LONG).show();
                                     }
                                 });
-
                             }
                         }
                     } catch (final JSONException e) {
